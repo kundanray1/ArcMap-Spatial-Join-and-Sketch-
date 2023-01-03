@@ -1,0 +1,13 @@
+export { default as AppStore } from './app-store-download-logo.svg';
+export { default as BuildingLocationAll } from './building-location-all.svg';
+export { default as BuildingLocationJSA } from './building-location-jsa.svg';
+export { default as BuildingLocationNotClosed } from './building-location-red.svg';
+export { default as BuildingLocation } from './building-location.svg';
+export { default as Doc } from './bxs-file-doc.svg';
+export { default as Excel } from './bxs-file-excel.svg';
+export { default as FileExport } from './bxs-file-export.svg';
+export { default as ImageFile } from './bxs-file-image.svg';
+export { default as Pdf } from './bxs-file-pdf.svg';
+export { default as Files } from './bxs-file.svg';
+export { default as CompanyBuildingLocation } from './company-building-location.svg';
+export { default as PlayStore } from './play-store-download-logo.svg';

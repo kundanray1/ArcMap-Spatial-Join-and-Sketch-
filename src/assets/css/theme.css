@@ -1,0 +1,257 @@
+.theme-default {
+  --chakra-colors-primary-50: #f2f8ff;
+  --chakra-colors-primary-100: #dbeafe;
+  --chakra-colors-primary-200: #bfdbfe;
+  --chakra-colors-primary-300: #93c5fd;
+  --chakra-colors-primary-400: #60a5fa;
+  --chakra-colors-primary-500: #3b82f6;
+  --chakra-colors-primary-600: #2563eb;
+  --chakra-colors-primary-700: #1d4ed8;
+  --chakra-colors-primary-800: #1e40af;
+  --chakra-colors-primary-900: #1e3a8a;
+}
+
+.theme-blue {
+  --chakra-colors-primary-50: #f2f8ff;
+  --chakra-colors-primary-100: #dbeafe;
+  --chakra-colors-primary-200: #bfdbfe;
+  --chakra-colors-primary-300: #93c5fd;
+  --chakra-colors-primary-400: #60a5fa;
+  --chakra-colors-primary-500: #3b82f6;
+  --chakra-colors-primary-600: #2563eb;
+  --chakra-colors-primary-700: #1d4ed8;
+  --chakra-colors-primary-800: #1e40af;
+  --chakra-colors-primary-900: #1e3a8a;
+}
+
+.theme-green {
+  --chakra-colors-primary-50: #ecfdf5;
+  --chakra-colors-primary-100: #d1fae5;
+  --chakra-colors-primary-200: #a7f3d0;
+  --chakra-colors-primary-300: #6ee7b7;
+  --chakra-colors-primary-400: #34d399;
+  --chakra-colors-primary-500: #348511;
+  --chakra-colors-primary-600: #059669;
+  --chakra-colors-primary-700: #047857;
+  --chakra-colors-primary-800: #065f46;
+  --chakra-colors-primary-900: #426043;
+}
+.theme-red {
+  --chakra-colors-primary-50: #ffffff;
+  --chakra-colors-primary-100: #fef5f5;
+  --chakra-colors-primary-200: #fbc5c5;
+  --chakra-colors-primary-300: #f89595;
+  --chakra-colors-primary-400: #f56565;
+  --chakra-colors-primary-500: #f23535;
+  --chakra-colors-primary-600: #e50f0f;
+  --chakra-colors-primary-700: #b50c0c;
+  --chakra-colors-primary-800: #850909;
+  --chakra-colors-primary-900: #550606;
+}
+.theme-cyan {
+  --chakra-colors-primary-50: #44627B;
+  --chakra-colors-primary-100: #c1f3fd;
+  --chakra-colors-primary-200: #90eafb;
+  --chakra-colors-primary-300: #5ee0fa;
+  --chakra-colors-primary-400: #2dd7f8;
+  --chakra-colors-primary-500: #44627B;
+  --chakra-colors-primary-600: #069bb9;
+  --chakra-colors-primary-700: #057287;
+  --chakra-colors-primary-800: #034856;
+  --chakra-colors-primary-900: #011f25;
+}
+.theme-teal {
+  --chakra-colors-primary-50: #9cd9d6;
+  --chakra-colors-primary-100: #88d1cd;
+  --chakra-colors-primary-200: #74c9c5;
+  --chakra-colors-primary-300: #60c1bd;
+  --chakra-colors-primary-400: #4cbab4;
+  --chakra-colors-primary-500: #38b2ac;
+  --chakra-colors-primary-600: #32a09b;
+  --chakra-colors-primary-700: #2d8e8a;
+  --chakra-colors-primary-800: #277d78;
+  --chakra-colors-primary-900: #226b67;
+}
+
+.theme-orange {
+  --chakra-colors-primary-50: #ffd8ad;
+  --chakra-colors-primary-100: #ffce99;
+  --chakra-colors-primary-200: #ffc485;
+  --chakra-colors-primary-300: #ffba70;
+  --chakra-colors-primary-400: #ffa94d;
+  --chakra-colors-primary-500: #ffa647;
+  --chakra-colors-primary-600: #ff9c33;
+  --chakra-colors-primary-700: #ff931f;
+  --chakra-colors-primary-800: #ff890a;
+  --chakra-colors-primary-900: #f57e00;
+}
+
+.theme-purple {
+  --chakra-colors-primary-50: #f5f3ff;
+  --chakra-colors-primary-100: #ede9fe;
+  --chakra-colors-primary-200: #ddd6fe;
+  --chakra-colors-primary-300: #c4b5fd;
+  --chakra-colors-primary-400: #a78bfa;
+  --chakra-colors-primary-500: #8b5cf6;
+  --chakra-colors-primary-600: #7c3aed;
+  --chakra-colors-primary-700: #6d28d9;
+  --chakra-colors-primary-800: #5b21b6;
+  --chakra-colors-primary-900: #4c1d95;
+}
+.theme-red {
+  --chakra-colors-primary-50: #fff5f5;
+  --chakra-colors-primary-100: #ffe3e3;
+  --chakra-colors-primary-200: #ffc9c9;
+  --chakra-colors-primary-300: #ffa8a8;
+  --chakra-colors-primary-400: #ff8787;
+  --chakra-colors-primary-500: #ff6b6b;
+  --chakra-colors-primary-600: #fa5252;
+  --chakra-colors-primary-700: #f03e3e;
+  --chakra-colors-primary-800: #e03131;
+  --chakra-colors-primary-900: #c92a2a;
+}
+
+.theme-pink {
+  --chakra-colors-primary-50: #fdf2f8;
+  --chakra-colors-primary-100: #fce7f3;
+  --chakra-colors-primary-200: #fbcfe8;
+  --chakra-colors-primary-300: #f9a8d4;
+  --chakra-colors-primary-400: #f472b6;
+  --chakra-colors-primary-500: #ec4899;
+  --chakra-colors-primary-600: #db2777;
+  --chakra-colors-primary-700: #be185d;
+  --chakra-colors-primary-800: #9d174d;
+  --chakra-colors-primary-900: #831843;
+}
+.theme-malibu {
+  --chakra-colors-primary-50: #d6dcff;
+  --chakra-colors-primary-100: #c2caff;
+  --chakra-colors-primary-200: #adb8ff;
+  --chakra-colors-primary-300: #99a7ff;
+  --chakra-colors-primary-400: #7f90ff;
+  --chakra-colors-primary-500: #7083ff;
+  --chakra-colors-primary-600: #5c72ff;
+  --chakra-colors-primary-700: #4760ff;
+  --chakra-colors-primary-800: #334eff;
+  --chakra-colors-primary-900: #1f3dff;
+}
+.theme-purple2 {
+  --chakra-colors-primary-50: #d0b9ed;
+  --chakra-colors-primary-100: #c6abe9;
+  --chakra-colors-primary-200: #bd9de5;
+  --chakra-colors-primary-300: #b38fe1;
+  --chakra-colors-primary-400: #aa81de;
+  --chakra-colors-primary-500: #a073da;
+  --chakra-colors-primary-600: #9068c4;
+  --chakra-colors-primary-700: #805cae;
+  --chakra-colors-primary-800: #705199;
+  --chakra-colors-primary-900: #604583;
+}
+.theme-brown {
+  --chakra-colors-primary-50: #c2c1b4;
+  --chakra-colors-primary-100: #b6b4a4;
+  --chakra-colors-primary-200: #aaa895;
+  --chakra-colors-primary-300: #9d9b86;
+  --chakra-colors-primary-400: #918f77;
+  --chakra-colors-primary-500: #858268;
+  --chakra-colors-primary-600: #78755e;
+  --chakra-colors-primary-700: #6a6853;
+  --chakra-colors-primary-800: #5d5b49;
+  --chakra-colors-primary-900: #504e3e;
+}
+.theme-darkbrown {
+  --chakra-colors-primary-50: #cfc9aa;
+  --chakra-colors-primary-100: #c5be99;
+  --chakra-colors-primary-200: #bcb388;
+  --chakra-colors-primary-300: #b2a977;
+  --chakra-colors-primary-400: #a99e66;
+  --chakra-colors-primary-500: #9f9355;
+  --chakra-colors-primary-600: #8f844d;
+  --chakra-colors-primary-700: #7f7644;
+  --chakra-colors-primary-800: #6f673b;
+  --chakra-colors-primary-900: #5f5833;
+}
+.theme-green2 {
+  --chakra-colors-primary-50: #b7d099;
+  --chakra-colors-primary-100: #a9c684;
+  --chakra-colors-primary-200: #9abd70;
+  --chakra-colors-primary-300: #8cb35b;
+  --chakra-colors-primary-400: #7daa47;
+  --chakra-colors-primary-500: #6fa032;
+  --chakra-colors-primary-600: #64902d;
+  --chakra-colors-primary-700: #598028;
+  --chakra-colors-primary-800: #4e7023;
+  --chakra-colors-primary-900: #43601e;
+}
+.theme-blue2 {
+  --chakra-colors-primary-50: #81d0e1;
+  --chakra-colors-primary-100: #68c6da;
+  --chakra-colors-primary-200: #4fbdd4;
+  --chakra-colors-primary-300: #35b3ce;
+  --chakra-colors-primary-400: #1caac8;
+  --chakra-colors-primary-500: #03a0c2;
+  --chakra-colors-primary-600: #0390af;
+  --chakra-colors-primary-700: #02809b;
+  --chakra-colors-primary-800: #027088;
+  --chakra-colors-primary-900: #026074;
+}
+.theme-blue3 {
+  --chakra-colors-primary-50: #9fc7de;
+  --chakra-colors-primary-100: #8bbcd7;
+  --chakra-colors-primary-200: #78b1d0;
+  --chakra-colors-primary-300: #65a5c9;
+  --chakra-colors-primary-400: #519ac3;
+  --chakra-colors-primary-500: #3e8fbc;
+  --chakra-colors-primary-600: #3881a9;
+  --chakra-colors-primary-700: #327296;
+  --chakra-colors-primary-800: #2b6484;
+  --chakra-colors-primary-900: #255671;
+}
+.theme-pink2 {
+  --chakra-colors-primary-50: #d483af;
+  --chakra-colors-primary-100: #cd6fa2;
+  --chakra-colors-primary-200: #c65a95;
+  --chakra-colors-primary-300: #65a5c9;
+  --chakra-colors-primary-400: #bf4687;
+  --chakra-colors-primary-500: #b8317a;
+  --chakra-colors-primary-600: #a62c6e;
+  --chakra-colors-primary-700: #932762;
+  --chakra-colors-primary-800: #812255;
+  --chakra-colors-primary-900: #6e1d49;
+}
+.theme-burlywood {
+  --chakra-colors-primary-50: #eddabf;
+  --chakra-colors-primary-100: #e9d1af;
+  --chakra-colors-primary-200: #e4c8a0;
+  --chakra-colors-primary-300: #e0be90;
+  --chakra-colors-primary-400: #d7ae73;
+  --chakra-colors-primary-500: #d7ac70;
+  --chakra-colors-primary-600: #d2a360;
+  --chakra-colors-primary-700: #ce9905;
+  --chakra-colors-primary-800: #c99040;
+  --chakra-colors-primary-900: #bf8636;
+}
+.theme-yellow {
+  --chakra-colors-primary-50: #fee4b2;
+  --chakra-colors-primary-100: #fedd9d;
+  --chakra-colors-primary-200: #fdcf75;
+  --chakra-colors-primary-300: #fdc14d;
+  --chakra-colors-primary-400: #fcb324;
+  --chakra-colors-primary-500: #f5a303;
+  --chakra-colors-primary-600: #be7e02;
+  --chakra-colors-primary-700: #865902;
+  --chakra-colors-primary-800: #4f3401;
+  --chakra-colors-primary-900: #171000;
+}
+.theme-purple3 {
+  --chakra-colors-primary-50: #faf5ff;
+  --chakra-colors-primary-100: #e9d8fd;
+  --chakra-colors-primary-200: #d6bcfa;
+  --chakra-colors-primary-300: #b794f4;
+  --chakra-colors-primary-400: #9f7aea;
+  --chakra-colors-primary-500: #805ad5;
+  --chakra-colors-primary-600: #6b46c1;
+  --chakra-colors-primary-700: #553c9a;
+  --chakra-colors-primary-800: #44337a;
+  --chakra-colors-primary-900: #322659;
+}

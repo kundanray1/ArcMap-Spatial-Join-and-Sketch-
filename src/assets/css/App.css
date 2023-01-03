@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+
+.logoDiv{
+    display: flex;
+    width: 100px;
+    height: 100px;
+    padding: 20px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-radius: 50%;
+    background-image: linear-gradient(349deg, #289e00, #018601 52%, #095000);
+}
+.logoImage{
+  display: inline-block;
+  max-width: 100%;
+}
+
+.sideBarLogo{
+  border-radius: 50%;
+  background-image: linear-gradient(349deg, #289e00, #018601 52%, #095000);
+}
+
+#fill-4{
+  fill: #018601;
+}
