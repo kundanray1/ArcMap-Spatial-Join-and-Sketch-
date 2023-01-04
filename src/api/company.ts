@@ -1,8 +1,8 @@
-import Resource from 'api/resource';
+import Resource from "api/resource";
 
 class CompanyResource extends Resource {
   constructor() {
-    super('companies');
+    super("companies");
   }
 }
 

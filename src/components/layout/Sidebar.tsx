@@ -1,180 +1,186 @@
-import { Box, Divider, Link, Text, Tooltip } from "@chakra-ui/react";
+import {
+  Box,
+  BoxProps,
+  CloseButton,
+  Drawer,
+  DrawerContent,
+  Flex,
+  FlexProps,
+  Icon,
+  IconButton,
+  Text,
+  useColorModeValue,
+  useDisclosure,
+} from "@chakra-ui/react";
+import { Link } from "react-router-dom";
+
 import routes from "constants/routes";
-import React from "react";
+import React, { ReactNode, ReactText } from "react";
+import { IconType } from "react-icons";
+import { BsPencil } from "react-icons/bs";
+import { FiMenu } from "react-icons/fi";
+import { GrHomeRounded, GrMail } from "react-icons/gr";
 import { useNavigate } from "react-router-dom";
 
-const Sidebar: React.FC = () => {
-  const navigate = useNavigate();
-  // styles
-  const navBoxStyles = {
-    h: "40px",
-    cursor: "pointer",
-    padding: "10px",
-  };
+interface LinkItemProps {
+  name: string;
+  icon: IconType;
+  url: string;
+}
+const LinkItems: Array<LinkItemProps> = [
+  { name: "Home", icon: GrHomeRounded, url: routes.users.list },
+  { name: "Reports", icon: BsPencil, url: routes.reports.index },
+  { name: "Chat", icon: GrMail, url: routes.chats.list },
+];
 
-  const navLinkActiveStyles = {
-    d: "block",
-    color: "#1A1B1F",
-    fontWeight: 700,
-    fontSize: "16px",
-    lineHeight: "18px",
-  };
-
+const Sidebar: React.FC<any> = ({ children }: { children: ReactNode }) => {
+  let navigate = useNavigate();
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
-      <Box
-        position="relative"
-        role="group"
-        border={"1px solid"}
-        borderColor={"#C5C6C9"}
-        w={300}
-        boxSizing={"border-box"}
-        borderWidth={2}
+      <SidebarContent onClose={() => onClose} />
+      <Drawer
+        autoFocus={false}
+        isOpen={isOpen}
+        placement="left"
+        onClose={onClose}
+        returnFocusOnClose={false}
+        onOverlayClick={onClose}
+        size="xs"
       >
-        <Text
-          color={"#406F96"}
-          fontSize={"20px"}
-          fontWeight={800}
-          padding={"3"}
-        >
-          Manage
-        </Text>
-
-        <Divider background={"#C5C6C9"} height={"3px"} opacity={0.5} />
-
-        <Link
-          sx={
-            window.location.pathname?.includes("/pits")
-              ? navLinkActiveStyles
-              : undefined
-          }
-          color={"#737373"}
-          fontWeight={500}
-          fontSize={"16px"}
-          transition="all 0.35s"
-          display="block"
-          _hover={navLinkActiveStyles}
-          onClick={() => {
-            // navigate(routes.manage.pits.list);
-            navigate(routes.dashboard);
-          }}
-        >
-          <Tooltip label={"Pit"} placement="left-end" hasArrow>
-            <Text sx={navBoxStyles}>Pit</Text>
-          </Tooltip>
-        </Link>
-
-        <Link
-          sx={
-            window.location.pathname?.includes("/plants")
-              ? navLinkActiveStyles
-              : undefined
-          }
-          color={"#737373"}
-          fontWeight={500}
-          fontSize={"16px"}
-          transition="all 0.35s"
-          display="block"
-          _hover={navLinkActiveStyles}
-          onClick={() => {
-            // navigate(routes.manage.plants.list);
-            navigate(routes.dashboard);
-          }}
-        >
-          <Tooltip label={"Plant"} placement="left-end" hasArrow>
-            <Text sx={navBoxStyles}>Plant</Text>
-          </Tooltip>
-        </Link>
-
-        <Link
-          sx={
-            window.location.pathname?.includes("/users")
-              ? navLinkActiveStyles
-              : undefined
-          }
-          color={"#737373"}
-          fontWeight={500}
-          fontSize={"16px"}
-          transition="all 0.35s"
-          display="block"
-          _hover={navLinkActiveStyles}
-          onClick={() => {
-            // navigate(routes.manage.users.list);
-            navigate(routes.dashboard);
-          }}
-        >
-          <Tooltip label={"Users"} placement="left-end" hasArrow>
-            <Text sx={navBoxStyles}>Users</Text>
-          </Tooltip>
-        </Link>
-
-        <Link
-          sx={
-            window.location.pathname?.includes("/peoples")
-              ? navLinkActiveStyles
-              : undefined
-          }
-          color={"#737373"}
-          fontWeight={500}
-          fontSize={"16px"}
-          transition="all 0.35s"
-          display="block"
-          _hover={navLinkActiveStyles}
-          onClick={() => {
-            // navigate(routes.manage.peoples.list);
-            navigate(routes.dashboard);
-          }}
-        >
-          <Tooltip label={"People"} placement="left-end" hasArrow>
-            <Text sx={navBoxStyles}>People</Text>
-          </Tooltip>
-        </Link>
-
-        <Link
-          sx={
-            window.location.pathname?.includes("/equipments")
-              ? navLinkActiveStyles
-              : undefined
-          }
-          color={"#737373"}
-          fontWeight={500}
-          fontSize={"16px"}
-          transition="all 0.35s"
-          display="block"
-          _hover={navLinkActiveStyles}
-          onClick={() => {
-            // navigate(routes.manage.equipments.list);
-            navigate(routes.dashboard);
-          }}
-        >
-          <Tooltip label={"Equipment"} placement="left-end" hasArrow>
-            <Text sx={navBoxStyles}>Equipment</Text>
-          </Tooltip>
-        </Link>
-
-        <Link
-          sx={
-            window.location.pathname?.includes("/products")
-              ? navLinkActiveStyles
-              : undefined
-          }
-          color={"#737373"}
-          fontWeight={500}
-          fontSize={"16px"}
-          transition="all 0.35s"
-          display="block"
-          _hover={navLinkActiveStyles}
-          onClick={() => {
-            // navigate(routes.manage.products.list);
-            navigate(routes.dashboard);
-          }}
-        >
-          <Tooltip label={"Product"} placement="left-end" hasArrow>
-            <Text sx={navBoxStyles}>Product</Text>
-          </Tooltip>
-        </Link>
+        <DrawerContent>
+          <SidebarContent onClose={onClose} />
+        </DrawerContent>
+      </Drawer>
+      {/* mobilenav */}
+      <MobileNav display={{ base: "flex", md: "none" }} onOpen={onOpen} />
+      <Box ml={{ base: 0, md: 60 }} p="4">
+        {children}
       </Box>
     </>
+  );
+};
+
+interface SidebarProps extends BoxProps {
+  onClose: () => void;
+}
+
+const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
+  return (
+    <Box
+      bg={"#FFFFFF"}
+      borderRight="1px"
+      w={{ base: "full", md: 60 }}
+      pos="fixed"
+      h="full"
+      {...rest}
+    >
+      <Flex alignItems="center" mx="8" justifyContent="end">
+        <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
+      </Flex>
+      {LinkItems.map((link) => (
+        <NavItem key={link.name} icon={link.icon} url={link.url}>
+          {link.name}
+        </NavItem>
+      ))}
+      {/* <Link
+        href="#"
+        style={{ textDecoration: "none" }}
+        _focus={{ boxShadow: "none" }}
+      >
+        <Flex
+          align="center"
+          p="6"
+          mx="4"
+          borderRadius="lg"
+          role="group"
+          cursor="pointer"
+          _hover={{
+            bg: "cyan.400",
+            color: "white",
+          }}
+          {...rest}
+        >
+          <Home></Home>
+          <Flex
+            mr="4"
+            width={"full"}
+            fontSize="16"
+            _groupHover={{
+              color: "white",
+            }}
+          >
+            Home
+          </Flex>
+        </Flex>
+      </Link> */}
+    </Box>
+  );
+};
+
+interface NavItemProps extends FlexProps {
+  icon: IconType;
+  children: ReactText;
+  url: string;
+}
+const NavItem = ({ icon, children, url, ...rest }: NavItemProps) => {
+  return (
+    <Link to={url} style={{ textDecoration: "none" }}>
+      <Flex
+        align="center"
+        p="4"
+        mx="4"
+        borderRadius="lg"
+        role="group"
+        cursor="pointer"
+        _hover={{
+          fontWeight: "700",
+        }}
+        {...rest}
+      >
+        {icon && (
+          <Icon
+            mr="4"
+            fontSize="16"
+            _groupHover={{
+              color: "white",
+            }}
+            as={icon}
+          />
+        )}
+        {children}
+      </Flex>
+    </Link>
+  );
+};
+
+interface MobileProps extends FlexProps {
+  onOpen: () => void;
+}
+const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
+  return (
+    <Flex
+      ml={{ base: 0, md: 60 }}
+      px={{ base: 4, md: 24 }}
+      height="20"
+      alignItems="center"
+      bg={useColorModeValue("white", "gray.900")}
+      borderBottomWidth="1px"
+      borderBottomColor={useColorModeValue("gray.200", "gray.700")}
+      justifyContent="flex-start"
+      {...rest}
+    >
+      <IconButton
+        variant="outline"
+        onClick={onOpen}
+        aria-label="open menu"
+        icon={<FiMenu />}
+      />
+
+      <Text fontSize="2xl" ml="8" fontFamily="monospace" fontWeight="bold">
+        Logo
+      </Text>
+    </Flex>
   );
 };
 

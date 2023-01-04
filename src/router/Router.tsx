@@ -5,8 +5,10 @@ import ForgotPassword from "pages/auth/ForgotPassword";
 import ResetPassword from "pages/auth/ResetPassword";
 import SetPassword from "pages/auth/SetPassword";
 import Dashboard from "pages/dashboard/Dashboard";
+import UserList from "pages/dashboard/users/UserList";
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import AuthenticateRoute from "./AuthenticateRoute";
 
 // Top level application router.
 
@@ -19,10 +21,11 @@ const Router: React.FC = () => {
         <Route path={routes.auth.setPassword} element={<SetPassword />} />
         <Route path={routes.auth.resetPassword} element={<ResetPassword />} />
 
-        {/* <Route path={routes.dashboard} element={<AuthenticateRoute />}> */}
-        <Route path={routes.dashboard} element={<Dashboard />} />
+        <Route path={routes.dashboard} element={<AuthenticateRoute />}>
+          <Route path={routes.users.list} element={<UserList />} />
+          <Route path={routes.dashboard} element={<Dashboard />} />
+        </Route>
         <Route path={routes.remaining} element={<PageNotFound />} />
-        {/* </Route> */}
       </Routes>
     </BrowserRouter>
   );

@@ -1,4 +1,4 @@
-import http from 'utils/http';
+import http from "utils/http";
 
 /**
  * Simple REST resource class
@@ -12,37 +12,37 @@ class Resource {
 
   list(query?: any) {
     return http({
-      url: '/' + this.uri,
-      method: 'get',
+      url: "/" + this.uri,
+      method: "get",
       params: query,
     });
   }
 
   get(id: any) {
     return http({
-      url: '/' + this.uri + '/' + id,
-      method: 'get',
+      url: "/" + this.uri + "/" + id,
+      method: "get",
     });
   }
   store(resource: any, headers?: any) {
     return http({
-      url: '/' + this.uri,
-      method: 'post',
+      url: "/" + this.uri,
+      method: "post",
       data: resource,
       headers: headers,
     });
   }
   update(id: any, resource: any) {
     return http({
-      url: '/' + this.uri + '/' + id,
-      method: 'put',
+      url: "/" + this.uri + "/" + id,
+      method: "put",
       data: resource,
     });
   }
   destroy(id: any) {
     return http({
-      url: '/' + this.uri + '/' + id,
-      method: 'delete',
+      url: "/" + this.uri + "/" + id,
+      method: "delete",
     });
   }
 }
