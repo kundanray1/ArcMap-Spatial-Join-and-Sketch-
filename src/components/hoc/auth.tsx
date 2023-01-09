@@ -45,14 +45,11 @@ function withAuthState(WrappedComponent: any) {
          */
         setLoggingIn(false);
         setIsLoggedIn(true);
-        setLoggedInUser(data?.user_details);
+        setLoggedInUser(data?.data?.user);
         setPermissions(data?.data?.user_information?.permission);
         setTimeout(async () => {
-          if (data?.user_details?.role === "super_admin")
-            // window.location.href = routes.companies.list;
-            window.location.href = routes.dashboard;
-          else window.location.href = routes.dashboard;
-        }, 0);
+          window.location.href = routes.dashboard;
+        }, 500);
       } catch (err: any) {
         setLoggingIn(false);
         const errMsg = err?.response?.data?.message || "Invalid Credentials";

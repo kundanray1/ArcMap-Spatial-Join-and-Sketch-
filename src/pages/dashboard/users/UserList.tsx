@@ -1,23 +1,12 @@
-import {
-  Flex,
-  Heading,
-  Stack,
-  Table,
-  TableContainer,
-  Tbody,
-  Th,
-  Thead,
-  Tr,
-} from "@chakra-ui/react";
+import { ChakraProvider } from "@chakra-ui/react";
+import { createColumnHelper } from "@tanstack/react-table";
 import UserResource from "api/user";
-import Pagination from "components/common/Pagination";
-import TableSkeletonLoader from "components/common/TableSkeletonLoader";
-import UserListItem from "components/user/UserListItem";
+import { UserListItem } from "components/user/UserListItem";
 import { DEFAULT_PAGE_SIZE, INITIAL_CURRENT_PAGE } from "constants/common";
 import React, { useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useQuery } from "react-query";
-import { getStartingSerialNumber } from "utils";
+import { getStartingSerialNumber, getUserListCompatibleData } from "utils";
 
 interface FilterParams {
   currentPage: number;
@@ -25,17 +14,24 @@ interface FilterParams {
   keyword: string;
 }
 
+type TableHeader = {
+  id: number;
+  name: string;
+  email: string;
+  status: boolean;
+  date_added: string;
+  action?: string;
+};
 const UserList: React.FC = () => {
-  console.log("here=================-");
   const api = new UserResource();
 
   const [totalData, setTotalData] = useState<number | undefined>(undefined);
+  const [userData, setUserData] = useState<any>();
   const [filterParams, setFilterParams] = useState<FilterParams>({
     currentPage: INITIAL_CURRENT_PAGE,
     pageSize: DEFAULT_PAGE_SIZE,
     keyword: "",
   });
-  console.log("filterParams===============", filterParams);
   const { data: dataList, isLoading: isListLoading } = useQuery(
     [
       "userList",
@@ -52,10 +48,14 @@ const UserList: React.FC = () => {
         keyword: filterParams.keyword,
       };
       const response = await api.list(queryParams);
+
+      const getUserData = await getUserListCompatibleData(response?.data?.data);
+      if (getUserData.length > 0) setUserData(getUserData);
       setTotalData(response?.data?.meta?.total);
       return response?.data;
     }
   );
+
   const methods = useForm<any>();
 
   const filterList = async (data: any) => {
@@ -101,54 +101,66 @@ const UserList: React.FC = () => {
     filterList(data);
   };
 
+  const columnHelper = createColumnHelper<TableHeader>();
+
+  const columns = [
+    columnHelper.accessor("name", {
+      cell: (info) => info.getValue(),
+      header: "Name",
+    }),
+    columnHelper.accessor("email", {
+      cell: (info) => info.getValue(),
+      header: "Email",
+    }),
+    columnHelper.accessor("status", {
+      cell: (info) => info.getValue(),
+      header: "Status",
+    }),
+    columnHelper.accessor("date_added", {
+      cell: (info) => info.getValue(),
+      header: "Date Added",
+    }),
+  ];
+
+  const data: TableHeader[] = [
+    {
+      id: 1,
+      name: "ASushan Shrestha",
+      email: "sushan.shrestha@outcodesoftware.com",
+      status: false,
+      date_added: "2022/12/04",
+      action: "action",
+    },
+    {
+      name: "CSushan Shrestha",
+      id: 2,
+      email: "sushan.shrestha@outcodesoftware.com",
+      status: false,
+      date_added: "2022/12/04",
+      action: "action",
+    },
+    {
+      id: 3,
+      name: "BSushan Shrestha",
+      email: "sushan.shrestha@outcodesoftware.com",
+      status: false,
+      date_added: "2022/12/04",
+      action: "action",
+    },
+    {
+      id: 4,
+      name: "AASushan Shrestha",
+      email: "sushan.shrestha@outcodesoftware.com",
+      status: false,
+      date_added: "2022/12/04",
+      action: "action",
+    },
+  ];
+
   return (
-    <>
-      <Stack direction="column" spacing="4">
-        <Flex justify="space-between">
-          <Stack direction="row">
-            <Heading size="md">List Client</Heading>
-          </Stack>
-        </Flex>
-
-        <Stack bg="white" p={["3", "6"]} shadow="box" rounded="sm">
-          <TableContainer>
-            <Table>
-              <Thead>
-                <Tr>
-                  <Th>#</Th>
-                  <Th>Company Name</Th>
-                  <Th>Office Number</Th>
-                  <Th>Address</Th>
-                  <Th>Representative Name</Th>
-                </Tr>
-              </Thead>
-              <Tbody>
-                {!isListLoading &&
-                  dataList?.data?.map((listData: any, index: number) => (
-                    <UserListItem
-                      listData={listData}
-                      key={listData.id}
-                      index={startingSN + index}
-                    />
-                  ))}
-                {isListLoading && (
-                  <TableSkeletonLoader rows={filterParams.pageSize} cols={7} />
-                )}
-              </Tbody>
-            </Table>
-          </TableContainer>
-        </Stack>
-
-        {dataList?.data && (
-          <Pagination
-            dataList={dataList}
-            filterParams={filterParams}
-            setFilterParams={setFilterParams}
-          />
-        )}
-      </Stack>
-    </>
+    <ChakraProvider>
+      <UserListItem columns={columns} data={userData} />
+    </ChakraProvider>
   );
 };
-
 export default UserList;

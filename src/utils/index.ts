@@ -1,5 +1,6 @@
-import dayjs from 'dayjs';
-import localizedFormat from 'dayjs/plugin/localizedFormat';
+import dayjs from "dayjs";
+import localizedFormat from "dayjs/plugin/localizedFormat";
+import { UserSchema } from "interface/user/userListItem";
 
 dayjs.extend(localizedFormat);
 
@@ -9,7 +10,7 @@ dayjs.extend(localizedFormat);
  * @returns
  */
 export function truncateString(str: string, count: number = 20) {
-  if (str) return str.slice(0, count) + (str.length > count ? '...' : '');
+  if (str) return str.slice(0, count) + (str.length > count ? "..." : "");
 }
 
 export function capitalizeFirstLetter(str: string) {
@@ -34,7 +35,7 @@ export const cleanData = (formData: any) => {
  */
 export const unmaskPhone = (value: string) => {
   if (!value) return value;
-  return value.replace(/[^\d]/g, '');
+  return value.replace(/[^\d]/g, "");
 };
 
 /**
@@ -46,9 +47,9 @@ export const unmaskPhone = (value: string) => {
  */
 export const maskPhone = (phone: string) => {
   if (!phone) return phone;
-  const x: any = phone.replace(/\D/g, '').match(/(\d{0,2})(\d{0,3})(\d{0,12})/);
-  phone = !x[2] ? x[1] : '(+' + x[1] + ') ' + x[2] + (x[3] ? ' ' + x[3] : '');
-  return phone ? phone : '';
+  const x: any = phone.replace(/\D/g, "").match(/(\d{0,2})(\d{0,3})(\d{0,12})/);
+  phone = !x[2] ? x[1] : "(+" + x[1] + ") " + x[2] + (x[3] ? " " + x[3] : "");
+  return phone ? phone : "";
 };
 
 /**
@@ -72,7 +73,7 @@ export const getStartingSerialNumber = (
 export const buildFormData = (
   model: any,
   form?: FormData,
-  namespace = ''
+  namespace = ""
 ): FormData => {
   let formData = form || new FormData();
   let formKey;
@@ -90,7 +91,7 @@ export const buildFormData = (
         buildFormData(element, formData, tempFormKey);
       });
     } else if (
-      typeof model[propertyName] === 'object' &&
+      typeof model[propertyName] === "object" &&
       !(model[propertyName] instanceof File)
     )
       buildFormData(model[propertyName], formData, formKey);
@@ -103,7 +104,7 @@ export const convertToFormData = (fData: any) => {
   const data = new FormData();
 
   for (const key in fData) {
-    if (key === 'field') {
+    if (key === "field") {
       data.append(key, fData[key][1]);
     } else {
       data.append(key, fData[key]);
@@ -114,27 +115,27 @@ export const convertToFormData = (fData: any) => {
 
 export const DateFormatYMD = (date: any): string => {
   if (!date) return date;
-  return dayjs(date).format('YYYY-MM-DD');
+  return dayjs(date).format("YYYY-MM-DD");
 };
 
 export const DateFormatMDY = (date: any): string => {
   if (!date) return date;
-  return dayjs(date).format('MM/DD/YYYY');
+  return dayjs(date).format("MM/DD/YYYY");
 };
 
 export const DateFormat = (date: any): string => {
   if (!date) return date;
-  return dayjs(date).format('MM/DD/YYYY');
+  return dayjs(date).format("MM/DD/YYYY");
 };
 
 export const DateFormatTime = (dateTime: any): string => {
   if (!dateTime) return dateTime;
-  return dayjs(dateTime).format('MM/DD/YYYY h:mm:ss A');
+  return dayjs(dateTime).format("MM/DD/YYYY h:mm:ss A");
 };
 
 export const TimeFormat = (dateTime: any): string => {
   if (!dateTime) return dateTime;
-  return dayjs(dateTime).format('h:mm:ss A');
+  return dayjs(dateTime).format("h:mm:ss A");
 };
 
 export const groupData = (data: any) => {
@@ -142,7 +143,19 @@ export const groupData = (data: any) => {
     const groups = data?.map((res: any) => {
       return res?.name;
     });
-    return truncateString(groups.join(', '));
+    return truncateString(groups.join(", "));
   }
-  return '-';
+  return "-";
+};
+
+export const getUserListCompatibleData = (data: UserSchema[]) => {
+  return data?.map((item) => {
+    return {
+      id: item?.id,
+      name: item?.name,
+      email: item?.email,
+      status: item?.status,
+      date_added: item?.createdAt,
+    };
+  });
 };

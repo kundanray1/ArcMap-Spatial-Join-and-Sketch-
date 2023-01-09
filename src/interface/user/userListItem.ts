@@ -1,13 +1,13 @@
+import { ColumnDef } from "@tanstack/react-table";
+
 export type UserSchema = {
   id?: number;
-  first_name?: string;
-  last_name?: string;
+  name?: string;
   username: string;
   email: string;
   role: string;
-  plant: string;
-  pit: string;
   status: string;
+  createdAt: Date;
 };
 
 export interface UserListItemType {
@@ -16,3 +16,8 @@ export interface UserListItemType {
   setUserIds?: any;
   userIds?: any;
 }
+
+export type DataTableProps<Data extends object> = {
+  data: Data[];
+  columns: ColumnDef<Data, any>[];
+};
