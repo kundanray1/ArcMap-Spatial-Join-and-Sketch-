@@ -1,0 +1,215 @@
+.header {
+  background: #0079c1;
+}
+
+.mapDiv {
+  height: 100%;
+  width: 100%;
+  
+}
+
+.app-container {
+  height: 100%;
+  width: 100%;
+}
+
+
+.custom-button{
+  z-index: 100;
+  position: absolute;
+  right: 10px;
+  margin-top: 10px;
+  /* top:10px; */
+  height: 46px;
+  border-width: 2px;
+  border-color: #616A72;
+  width: 113px;
+  background-color: #FFFFFF;
+  /* position: ; */
+}
+
+.apply-banner{
+  
+  display: flex;
+  position: absolute;
+  width: -webkit-fill-available;
+  height: 75px;
+  
+  justify-content: space-between;
+  align-items: center;
+}
+.edit-draw-button{
+  z-index: 100;
+  position: absolute;
+  right: 10px;
+  margin-top: 10px;
+  /* top:10px; */
+  height: 46px;
+  border-width: 2px;
+  border-color: #616A72;
+  /* width: 113px; */
+  background-color: #000;
+}
+.edit-box{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 10px;
+  height: -webkit-fill-available;
+  /* height: 75px; */
+  
+  justify-content: flex-start;
+  align-items: center;
+}
+.edit-list-container{
+ 
+  width: 227px;
+max-height: 364px;
+left: 1193px;
+margin-top: 65px;
+
+background: #FFFFFF;
+box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.15);
+border-radius: 6px;
+}
+.edit-list-event-button{
+  /* position: relative; */
+  color: #FFFFFF;
+  width: 193px;
+height: 40px;
+/* left: 15px; */
+background: #000000!important;
+border-radius: 6px;
+}
+
+
+.toast-banner{
+  /* position: absolute; */
+width: 567px;
+height: 74px;
+/* left: 437px;
+top: 88px; */
+align-items: center;
+background: #8CB832;
+box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.18);
+border-radius: 8px;
+}
+.esri-popup__inline-actions-container,header.esri-popup__header,.esri-popup__footer {
+  display: none;
+}
+.esri-popup__content {
+  margin: 0px;
+}
+.esri-popup__content, .esri-ui .esri-popup,.esri-view-width-medium .esri-popup__main-container{
+  border-radius: 6px;
+  background-color: transparent;
+  max-width: 75px;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.15);
+}
+.esri-widget__table tr th,.esri-widget__table tr td{
+  background-color: white;
+}
+.esri-view-height-less-than-medium .esri-popup__main-container,.esri-view-width-xlarge .esri-popup__main-container{
+  background-color: transparent;
+  max-width: 375px;
+}
+.esri-expand__panel > div  {
+  background-image: url(assets/images/BaseMapThumb.png);
+  background-position: center;
+  padding:50px;
+  margin:5px;
+  border-radius: 5px;
+}
+.esri-component.esri-expand.esri-widget.esri-expand--auto{
+  border-radius: 5px;
+}
+.esri-basemap-gallery__item-container{
+  flex-direction: row;
+  justify-content: space-between;
+  /* height: inherit; */
+  margin: 10px;
+}
+.esri-basemap-gallery__item{
+  display: flex;
+  flex-direction: column;
+  margin-top: 0px;
+  flex: 0.3;
+  justify-content: space-between;
+  text-align: center;
+  padding:0px;
+  height: fit-content;
+}
+.esri-basemap-gallery__item-thumbnail{
+  width: 65px;
+  height: 65px;
+
+  border-radius: 4px;
+  border-width: 2px;
+  border-color: black;
+  border-style: solid;
+}
+.esri-view .esri-basemap-gallery{
+  max-width: 356px;
+}
+.esri-basemap-gallery__item-title,.esri-basemap-gallery__item:first-child{
+  word-break:break-word;
+  padding: 0px;
+  margin: 0px;
+}
+.esri-basemap-gallery.esri-widget.esri-widget--panel-height-only{
+   width: 356px;
+  /* height: 122px;  */
+  border-radius: 6px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+}
+.esri-basemap-gallery__item:hover, .esri-basemap-gallery__item:focus{
+  border-inline-start-color: transparent;
+}
+.esri-basemap-gallery__item-title{
+  font-size: 12px;
+    font-weight: 500;
+    color: black;
+}
+
+.damage-rating-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 6px; 
+  flex: 1;
+}
+.blackInfo-container{
+  display: flex;
+  background-color: #000;
+ padding: 8px;
+border-radius: 6px;
+}
+
+.rating-button-text{
+ color: white;
+ font-size: 10px;
+ font-weight: 600;
+}
+.rating-info-icon{
+  align-self: center;
+}
+.damage-rating-button{
+  flex: 1;
+  display: flex;
+
+}
+.assessment-gallery-thumb{
+width: 189px;
+height: 126px;
+border-radius: 4px;
+margin-right:18px ;
+}
+
+.lg-react-element{
+  display:flex
+}
+div#lg-backdrop-2 {
+  opacity: 0.7;
+}

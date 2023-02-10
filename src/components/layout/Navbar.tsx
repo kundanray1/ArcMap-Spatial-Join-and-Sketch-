@@ -1,5 +1,6 @@
 import {
   Avatar,
+  Badge,
   Box,
   Button,
   Center,
@@ -15,6 +16,7 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
+import { Logo } from "assets/images";
 import { withAuthState } from "components/hoc/auth";
 import routes from "constants/routes";
 import React from "react";
@@ -51,15 +53,47 @@ const Nav: React.FC<Props> = (props) => {
         >
           <HStack spacing={8} alignItems={"center"}>
             <Box>
-              <Image src={""} alt={"Recon"} w={[56, 60, 60, 72]} />
+              <Image src={Logo} alt={"Recon"} w={[56, 35, 35, 90]} />
             </Box>
           </HStack>
           <Flex alignItems={"center"}>
             <Menu>
               <HStack spacing={8} alignItems={"center"}>
                 <Text fontWeight={600}>Howdy, Justin.</Text>
-                <Stack>
-                  <FiMail />
+
+                <Stack justify={"center"} align={"center"}>
+                  <Badge
+                    fontSize={8}
+                    color="white"
+                    // top={0}
+                    right={"-90%"}
+                    top={-2}
+                    width={18}
+                    height={18}
+                    display="flex"
+                    backgroundColor="#56AAC3"
+                    borderRadius={"30"}
+                    position={"relative"}
+                    textAlign={"center"}
+                    justifyContent="center"
+                    alignItems={"center"}
+                    zIndex={2}
+                  >
+                    2
+                  </Badge>
+                  <Stack
+                    borderWidth={1}
+                    borderColor="white"
+                    borderRadius={30}
+                    width={30}
+                    height={30}
+                    align="center"
+                    justify="center"
+                    alignSelf={"center"}
+                    position={"absolute"}
+                  >
+                    <FiMail></FiMail>
+                  </Stack>
                 </Stack>
                 <MenuButton
                   as={Button}
@@ -73,7 +107,7 @@ const Nav: React.FC<Props> = (props) => {
                     src={
                       "https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=b616b2c5b373a80ffc9636ba24f7a4a9"
                     }
-                  />
+                  ></Avatar>
                 </MenuButton>
               </HStack>
               <MenuList color={"#000"}>

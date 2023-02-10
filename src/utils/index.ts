@@ -1,5 +1,6 @@
 import dayjs from "dayjs";
 import localizedFormat from "dayjs/plugin/localizedFormat";
+import { OrganizationSchema } from "interface/organization/organizationListItem";
 import { UserSchema } from "interface/user/userListItem";
 
 dayjs.extend(localizedFormat);
@@ -149,6 +150,20 @@ export const groupData = (data: any) => {
 };
 
 export const getUserListCompatibleData = (data: UserSchema[]) => {
+  return data?.map((item) => {
+    return {
+      id: item?.id,
+      name: item?.name,
+      email: item?.email,
+      status: item?.status,
+      date_added: item?.createdAt,
+    };
+  });
+};
+
+export const getOrganizationListCompatibleData = (
+  data: OrganizationSchema[]
+) => {
   return data?.map((item) => {
     return {
       id: item?.id,

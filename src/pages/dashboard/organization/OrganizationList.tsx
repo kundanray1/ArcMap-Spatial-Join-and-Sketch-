@@ -1,12 +1,15 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import { createColumnHelper } from "@tanstack/react-table";
-import UserResource from "api/user";
-import { UserListItem } from "components/user/UserListItem";
+import OrganizationResource from "api/organizations";
+import { OrganizationListItem } from "components/organization/OrganizationListItem";
 import { DEFAULT_PAGE_SIZE, INITIAL_CURRENT_PAGE } from "constants/common";
 import React, { useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useQuery } from "react-query";
-import { getStartingSerialNumber, getUserListCompatibleData } from "utils";
+import {
+  getOrganizationListCompatibleData,
+  getStartingSerialNumber,
+} from "utils";
 
 interface FilterParams {
   currentPage: number;
@@ -22,11 +25,11 @@ type TableHeader = {
   date_added: string;
   action?: string;
 };
-const UserList: React.FC = () => {
-  const api = new UserResource();
+const OrganizationList: React.FC = () => {
+  const api = new OrganizationResource();
 
   const [totalData, setTotalData] = useState<number | undefined>(undefined);
-  const [userData, setUserData] = useState<any>();
+  const [OrganizationData, setOrganizationData] = useState<any>();
   const [filterParams, setFilterParams] = useState<FilterParams>({
     currentPage: INITIAL_CURRENT_PAGE,
     pageSize: DEFAULT_PAGE_SIZE,
@@ -34,7 +37,7 @@ const UserList: React.FC = () => {
   });
   const { data: dataList, isLoading: isListLoading } = useQuery(
     [
-      "userList",
+      "organizationList",
       {
         page: filterParams.currentPage,
         limit: filterParams.pageSize,
@@ -49,8 +52,11 @@ const UserList: React.FC = () => {
       };
       const response = await api.list(queryParams);
 
-      const getUserData = await getUserListCompatibleData(response?.data?.data);
-      if (getUserData.length > 0) setUserData(getUserData);
+      const getOrganizationData = await getOrganizationListCompatibleData(
+        response?.data?.data
+      );
+      if (getOrganizationData.length > 0)
+        setOrganizationData(getOrganizationData);
       setTotalData(response?.data?.meta?.total);
       return response?.data;
     }
@@ -159,8 +165,8 @@ const UserList: React.FC = () => {
 
   return (
     <ChakraProvider>
-      <UserListItem columns={columns} data={data} />
+      <OrganizationListItem columns={columns} data={data} />
     </ChakraProvider>
   );
 };
-export default UserList;
+export default OrganizationList;

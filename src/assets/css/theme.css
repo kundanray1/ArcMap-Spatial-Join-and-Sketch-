@@ -255,3 +255,7 @@
   --chakra-colors-primary-800: #44337a;
   --chakra-colors-primary-900: #322659;
 }
+
+.recon-black{
+  --darkBlack: #23282C;
+}

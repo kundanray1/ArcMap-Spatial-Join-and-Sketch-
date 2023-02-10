@@ -1,4 +1,5 @@
 const routes = {
+  map_mobile: "/mobile",
   dashboard: "/",
   auth: {
     login: "/login",
@@ -18,6 +19,9 @@ const routes = {
     edit: "/users/edit/:id",
     view: "/users/view/:id",
   },
+  assessment: {
+    detail: "/assessment/detail",
+  },
   companies: {
     base: "/companies/*",
     list: "/companies/list",
@@ -31,6 +35,12 @@ const routes = {
   reports: {
     base: "/reports/*",
     index: "/reports",
+  },
+  organization: {
+    list: "/organization/list",
+    create: "/organization/create",
+    edit: "/organization/edit/:id",
+    view: "/organization/view/:id",
   },
   remaining: "/*",
 };

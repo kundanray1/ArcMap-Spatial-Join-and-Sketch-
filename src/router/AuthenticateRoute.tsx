@@ -23,11 +23,12 @@ const AuthenticateRoute: React.FC<IProps> = (props) => {
       <Nav />
       <Flex background={"#FFFFFF"}>
         <Sidebar />
+
         <Box
           minHeight="calc(100vh - 75px)"
           overflowY="scroll"
           flex={1}
-          p={8}
+          // p={8}
           bg="#ffffff"
         >
           <Outlet />
