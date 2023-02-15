@@ -2,7 +2,7 @@
 
 import FeatureLayer from "@arcgis/core/layers/FeatureLayer";
 import Feature from "@arcgis/core/widgets/Feature";
-import { view } from "./MapView";
+import { view } from "./MapViewMobile";
 
 export function customPopupFunction(feature: Feature) {
   // const callAndroid = () => {
@@ -15,7 +15,7 @@ export function customPopupFunction(feature: Feature) {
   );
 
   console.log(JSON.stringify(feature.graphic.attributes), "image url");
-  div.innerHTML = `<button style="display: flex; width="375px" >
+  div.innerHTML = `<button style="flex: none; width="375px" >
     <div style="width: 30%;">
       <img src="${feature.graphic.attributes.image}" alt="Your Image" style="height: 100%;object-fit: cover;">
     </div>
@@ -72,9 +72,9 @@ export async function createLayer(layer: any, source: any, extraFields: any) {
 export async function showLocation(item: any) {
   // const { attributes, location, extent } = item;
   let opts = {
-    duration: 5000, // Duration of animation will be 5 seconds
+    duration: 500, // Duration of animation will be 5 seconds
   };
-  console.log(item);
+  // console.log(item);
   view.goTo(
     {
       center: [item.latitude, item.longitude],

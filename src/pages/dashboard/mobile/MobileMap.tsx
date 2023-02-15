@@ -1,6 +1,5 @@
 import { Box, ChakraProvider } from "@chakra-ui/react";
-import BridgeList from "components/bridges/BridgeList";
-import TessalationMap from "components/map/TessalationMap";
+import TessalationMapMobile from "components/mobilemap/TessalationMapMobile";
 import React from "react";
 
 const MobileMap: React.FC = () => {
@@ -14,13 +13,16 @@ const MobileMap: React.FC = () => {
 
   return (
     <ChakraProvider>
-      <Box display={"flex"} flexDirection="row">
-        <Box width={{ base: "0%", md: "25%" }} display={"flex"}>
+      <Box display={"flex"} width="full" height={"full"} position="fixed">
+        {/* <Box width={{ base: "0%", md: "0%" }} display={"flex"}>
           <BridgeList />
-        </Box>
-        <Box width={{ base: "100%", md: "75%" }}>
-          <TessalationMap />
-        </Box>
+        </Box> */}
+        {/* <Flex
+          minWidth={"-webkit-fill-available"}
+          height={"-webkit-fit-content"}
+        > */}
+        <TessalationMapMobile />
+        {/* </Flex> */}
       </Box>
     </ChakraProvider>
   );

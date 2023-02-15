@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import {
   Box,
   Card,
@@ -8,6 +10,7 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
+
 import { showLocation } from "components/map/MapCutomFuntioncs";
 import {
   BridgeData,
@@ -22,31 +25,34 @@ interface DataI {
 const BridgeListCard = (data: BridgeData) => {
   function ShowLocation(p: GeometryI) {
     // focusFeature(p.geometry);
+    let pt = {
+      latitude: p.coordinates[0][0],
+      longitude: p.coordinates[0][1],
+    };
+    // if (p.coordinates && p.coordinates[0] && p.coordinates[1]) {
+    //   let dummy = {
+    //     address: "George S Eccless 2002 Legacy Bridge",
+    //     location: {
+    //       x: p.coordinates[0][0],
+    //       y: p.coordinates[0][1],
+    //     },
+    //     score: 20,
 
-    if (p.coordinates && p.coordinates[0] && p.coordinates[1]) {
-      let dummy = {
-        address: "George S Eccless 2002 Legacy Bridge",
-        location: {
-          x: p.coordinates[0][0],
-          y: p.coordinates[0][1],
-        },
-        score: 20,
+    //     extent: {
+    //       xmin: p.coordinates[0][0],
+    //       ymin: p.coordinates[0][1],
+    //       xmax: p.coordinates[1][0],
+    //       ymax: p.coordinates[1][1],
+    //       spatialReference: {
+    //         wkid: 4326,
+    //       },
+    //     },
+    //   };
+    // var line = p;
 
-        extent: {
-          xmin: p.coordinates[0][0],
-          ymin: p.coordinates[0][1],
-          xmax: p.coordinates[1][0],
-          ymax: p.coordinates[1][1],
-          spatialReference: {
-            wkid: 4326,
-          },
-        },
-      };
-      // var line = p;
-
-      showLocation(dummy);
-      // focusFeature(p);
-    } else return;
+    showLocation(pt);
+    // focusFeature(p);
+    // } else return;
   }
 
   return data?.features?.map((item: FeaturesEntity, n: Number) => {
